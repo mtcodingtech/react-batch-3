@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="products"></div>
+
+    <script>
+        let products = document.querySelector(".products");
+         console.log(products);
+         function renderProducts(getProducts) {
+            products.innerHTML = getProducts.map(product => `<p>${product.title}</p>`).join("")
+         }
+
+     async function fetchProducts() {
+        try {
+          const apiResponse = await fetch("https://dummyjson.com/products", {
+            method: "GET",
+          });
+          const result = await apiResponse.json();
+        //   if(result && result.products && result.products.length > 0)
+          if(result?.products?.length > 0){
+            renderProducts(result.products)
+          }
+         
+        } catch (error) {
+            console.log(error.message)
+        }
+      }
+      fetchProducts();
+    </script>
+  </body>
+</html>
