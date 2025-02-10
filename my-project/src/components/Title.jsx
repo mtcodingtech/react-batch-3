@@ -9,11 +9,11 @@
 
 function Title(props) {
   const { name, price } = props;
- 
+  const style = { color: "blue", background: "#fff", padding: "3rem" };
   return (
     <>
-      <h1>{name}</h1>
-      <p>{price || "$20"}</p>
+      <h1 className="heading2">{name}</h1>
+      <p style={style}>{price || "$20"}</p>
     </>
   );
 }
