@@ -8,6 +8,8 @@ import Title from "./components/Title";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Nav from "./components/Nav";
+import Hooks from "./pages/Hooks";
+import HookDetail from "./pages/HookDetail";
 
 function App() {
   return (
@@ -25,17 +27,13 @@ function App() {
 
 
 
-
-
-        <Nav />
-        <Routes>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/contact" element={<Contact />}></Route>
-        </Routes>
-
-
-
-
+      <Nav />
+      <Routes>
+        <Route path="/hooks" element={<Hooks />}></Route>
+        <Route path="/hooks/:id" element={<HookDetail />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+      </Routes>
     </>
   );
 }
