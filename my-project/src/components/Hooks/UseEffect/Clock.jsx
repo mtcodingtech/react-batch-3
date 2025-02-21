@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { withBackground } from '../../HOC/HOC';
 
 function Clock() {
     const [time, setTime] = useState(new Date());
@@ -29,4 +30,4 @@ function Clock() {
   )
 }
 
-export default Clock
+export default withBackground(Clock)

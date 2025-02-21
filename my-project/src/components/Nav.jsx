@@ -24,8 +24,8 @@ const linkItems = [
     name: "Contact",
   },
   {
-    url: "/contact",
-    name: "Contact",
+    url: "/hoc",
+    name: "HOC",
   },
 ];
 

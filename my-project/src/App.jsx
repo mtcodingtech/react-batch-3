@@ -11,6 +11,8 @@ import Nav from "./components/Nav";
 import Hooks from "./pages/Hooks";
 import HookDetail from "./pages/HookDetail";
 import ThemeContextProvider from "./context/ThemeContext";
+import HOC from "./components/HOC/HOC";
+import Test from "./components/HOC/Test";
 
 function App() {
   return (
@@ -33,8 +35,10 @@ function App() {
           <Route path="/hooks/:id" element={<HookDetail />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/HOC" element={<HOC />}></Route>
         </Routes>
       </ThemeContextProvider>
+      <Test />
     </>
   );
 }

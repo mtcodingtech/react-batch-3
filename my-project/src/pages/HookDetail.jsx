@@ -9,6 +9,8 @@ import DynamicBox from "../components/Hooks/UseState/DynamicBox";
 import ComponentA from "../components/Hooks/PropsDrilling/ComponentA";
 import SimpleUseEffect from "../components/Hooks/UseEffect/SimpleUseEffect";
 import Clock from "../components/Hooks/UseEffect/Clock";
+import APIData from "../components/Hooks/UseEffect/APIData";
+import VideoPlayer from "../components/Hooks/UseRef/VideoPlayer";
 
 function HookDetail() {
   const { id } = useParams();
@@ -32,6 +34,11 @@ function HookDetail() {
         <>
           {/* <SimpleUseEffect /> */}
           <Clock />
+          <APIData />
+        </>
+      ) : id === "useRef" ? (
+        <>
+          <VideoPlayer />
         </>
       ) : (
         <h2>Other</h2>
