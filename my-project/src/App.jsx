@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Nav from "./components/Nav";
 import Hooks from "./pages/Hooks";
 import HookDetail from "./pages/HookDetail";
+import ThemeContextProvider from "./context/ThemeContext";
 
 function App() {
   return (
@@ -25,15 +26,15 @@ function App() {
       {/* <Logo /> */}
       {/* <Books /> */}
 
-
-
-      <Nav />
-      <Routes>
-        <Route path="/hooks" element={<Hooks />}></Route>
-        <Route path="/hooks/:id" element={<HookDetail />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        <Route path="/contact" element={<Contact />}></Route>
-      </Routes>
+      <ThemeContextProvider>
+        <Nav />
+        <Routes>
+          <Route path="/hooks" element={<Hooks />}></Route>
+          <Route path="/hooks/:id" element={<HookDetail />}></Route>
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+        </Routes>
+      </ThemeContextProvider>
     </>
   );
 }
