@@ -38,7 +38,7 @@ function App() {
           <Route path="/HOC" element={<HOC />}></Route>
         </Routes>
       </ThemeContextProvider>
-      <Test />
+      {/* <Test /> */}
     </>
   );
 }

@@ -11,6 +11,7 @@ import SimpleUseEffect from "../components/Hooks/UseEffect/SimpleUseEffect";
 import Clock from "../components/Hooks/UseEffect/Clock";
 import APIData from "../components/Hooks/UseEffect/APIData";
 import VideoPlayer from "../components/Hooks/UseRef/VideoPlayer";
+import Input from "../components/CustomHook/Input";
 
 function HookDetail() {
   const { id } = useParams();
@@ -39,6 +40,10 @@ function HookDetail() {
       ) : id === "useRef" ? (
         <>
           <VideoPlayer />
+        </>
+      ) : id === "customHook" ? (
+        <>
+          <Input />
         </>
       ) : (
         <h2>Other</h2>
