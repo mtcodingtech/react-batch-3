@@ -6,6 +6,7 @@ export const store = configureStore({
     reducer: {
         theme: themeReducer,
         books: booksSliceReducer
+        
     }
 })
 
