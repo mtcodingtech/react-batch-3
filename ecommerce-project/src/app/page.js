@@ -4,11 +4,15 @@ import Link from "next/link";
 import CustomBtn from "@/components/CustomBtn";
 import { Box } from "@mui/material";
 import CustomSlider from "@/components/CustomSlider";
+import CategoryList from "@/components/CategoryList";
+import { categoryImages } from "@/utils/data";
 
 export default function Home() {
   return (
     <>
-    <CustomSlider />
+      <CustomSlider />
+      <CategoryList />
+    
     </>
   );
 }
