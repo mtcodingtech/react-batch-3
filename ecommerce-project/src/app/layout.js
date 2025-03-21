@@ -1,6 +1,9 @@
 import { Emblema_One, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CustomAppBar from "@/components/CustomAppbar";
+import { Provider } from "react-redux";
+import { store } from "@/redux/store";
+import ReduxLayout from "@/components/ReduxLayout";
 
 const emblema = Emblema_One({
   weight: "400",
@@ -28,8 +31,10 @@ export default function RootLayout({ children }) {
       <body
         className={` ${emblema.className} ${geistSans.variable} ${geistMono.variable} ${geistSans.className}`}
       >
-        <CustomAppBar />
-        {children}
+        <ReduxLayout>
+          <CustomAppBar />
+          {children}
+        </ReduxLayout>
       </body>
     </html>
   );
