@@ -7,6 +7,7 @@ import CustomSlider from "@/components/CustomSlider";
 import CategoryList from "@/components/CategoryList";
 import { categoryImages } from "@/utils/data";
 import ProductList from "@/components/ProductList";
+import Cart from "@/components/Cart";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <CustomSlider />
       <CategoryList />
       <ProductList />
+      <Cart></Cart>
     </>
   );
 }

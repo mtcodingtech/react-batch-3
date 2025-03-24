@@ -11,7 +11,6 @@ import { green, grey } from "@mui/material/colors";
 function CategoryItem({ category, index }) {
   const { selectedCategory } = useSelector((state) => state.products);
   const dispatch = useDispatch();
- 
 
   useEffect(() => {
     dispatch(setCategory("beauty"));
@@ -19,6 +18,8 @@ function CategoryItem({ category, index }) {
   }, []);
 
   const handleCategoryClick = (categorySlug) => {
+    if (selectedCategory === categorySlug) return; // Prevent duplicate fetch
+    dispatch(fetchProductsByCategory(categorySlug));
     dispatch(setCategory(categorySlug));
   };
 

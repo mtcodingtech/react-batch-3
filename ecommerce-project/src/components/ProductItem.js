@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { categoryImages } from "@/utils/data";
 import { Box, Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
@@ -6,8 +6,10 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "@/redux/productsSlice";
 import { green, grey } from "@mui/material/colors";
+import { addToCart, toggleCart } from "@/redux/cartSlice";
 
-function ProductItem({product}) {
+function ProductItem({ product }) {
+  const dispatch = useDispatch();
   return (
     <Grid
       item
@@ -15,12 +17,9 @@ function ProductItem({product}) {
       key={1}
       sx={{
         py: 4,
-      
       }}
     >
-      <Box
-        sx={{ textAlign: "center" }}
-      >
+      <Box sx={{ textAlign: "center" }}>
         <Image
           src={product.thumbnail}
           alt="img"
@@ -29,15 +28,23 @@ function ProductItem({product}) {
           style={{ width: 50, height: 50, margin: "0 auto" }}
         />
         <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-         {product.title}
+          {product.title}
         </Typography>
         <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-         {product.price}
+          {product.price}
         </Typography>
-        <Button variant='outlined'>Add to cart</Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            dispatch(addToCart(product));
+            dispatch(toggleCart(true));
+          }}
+        >
+          Add to cart
+        </Button>
       </Box>
     </Grid>
-  )
+  );
 }
 
-export default ProductItem
+export default ProductItem;
