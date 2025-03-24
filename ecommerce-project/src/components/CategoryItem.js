@@ -1,16 +1,17 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { categoryImages } from "@/utils/data";
 import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductsByCategory, setCategory } from "@/redux/productsSlice";
+import { green } from "@mui/material/colors";
 
 function CategoryItem({ category, index }) {
-  const dispatch = useDispatch();
-
   const { selectedCategory } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setCategory("beauty"));
@@ -24,20 +25,24 @@ function CategoryItem({ category, index }) {
     dispatch(fetchProductsByCategory(category));
   };
 
+  // const handleCategoryClick = (categorySlug) => {
+  //   dispatch(setCategory(categorySlug));
+  // };
+
   const active = selectedCategory === category.slug;
   const activeStyles = active && {
-    background: "red",
+    color: "#fff",
+    background: green[800],
     "&::before": {
       content: "''",
-      width: 20,
-      height: 20,
       position: "absolute",
       bottom: "-26%",
+      border: "20px solid transparent",
+      borderTopColor: green[800],
       left: 0,
       right: 0,
+      width: 20,
       margin: "auto",
-      border: "20px solid transparent",
-      borderTopColor: "red",
     },
   };
   return (
@@ -47,11 +52,11 @@ function CategoryItem({ category, index }) {
       sx={{
         py: 4,
         position: "relative",
-        "&:last-child > :first-child": {
+        "&:last-child > :first-of-type": {
           borderRight: 0,
         },
-        ...activeStyles,
       }}
+      key={category.slug}
     >
       <Box
         sx={{
@@ -63,7 +68,7 @@ function CategoryItem({ category, index }) {
         onClick={() => handleCategoryClick(category.slug)}
       >
         <Image
-          src={category.image}
+          src={categoryImages[index]}
           alt="img"
           width={500}
           height={500}

@@ -3,6 +3,7 @@ import "./globals.css";
 import CustomAppBar from "@/components/CustomAppbar";
 import ReduxProvider from "@/components/ReduxProvider";
 
+
 const emblema = Emblema_One({
   weight: "400",
   subsets: ["latin"],

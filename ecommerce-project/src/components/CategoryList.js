@@ -1,9 +1,11 @@
 import { categoryImages } from "@/utils/data";
 import { Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-
 import React from "react";
 import CategoryItem from "./CategoryItem";
+
+import Image from "next/image";
+import { grey } from "@mui/material/colors";
 
 export default async function CategoryList() {
   const data = await fetch("https://dummyjson.com/products/categories");
@@ -15,6 +17,7 @@ export default async function CategoryList() {
   }));
 
   return (
+
     <Container
       sx={{ width: "1100px", my: 8, border: "1px solid #000" }}
       disableGutters
