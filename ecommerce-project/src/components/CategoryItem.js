@@ -20,6 +20,7 @@ function CategoryItem({ category, index }) {
 
   const handleCategoryClick = (categorySlug) => {
     dispatch(setCategory(categorySlug));
+    dispatch(fetchProductsByCategory(categorySlug));
   };
 
   const active = selectedCategory === category.slug;

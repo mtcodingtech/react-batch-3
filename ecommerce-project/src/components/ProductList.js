@@ -15,7 +15,7 @@ function ProductList() {
   if (status === "loading") return <p>Loading...</p>;
   return (
     <Container sx={{ width: "1100px", my: 8 }}>
-      <Grid container>
+      <Grid container spacing={2}>
         {products &&
           products.map((product, index) => {
             return (
